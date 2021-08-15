@@ -72,7 +72,7 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: '0.5'
+    value: '0'
   states:
     bus_sink: false
     bus_source: false
@@ -339,10 +339,11 @@ blocks:
       \    h=np.sinc(k/Sps)\n    return h\n\n#######################################################\n\
       ##               Forma Coseno Alzado                 ##\n#######################################################\
       \                       \ndef rcos(Sps,ntaps,beta):\n    if beta==0:\n     \
-      \   h=nyq(Sps,ntaps)\n    else:\n        h=ntaps*[0,]\n        for n in range(ntaps):\n\
-      \            k=n-ntaps/2. # esto es para que h[n] quede centrada en la mitad\
-      \ del vector\n            if abs(k)==Sps/(2.*beta):\n                h[n]=np.sinc(1./(2.*beta))*math.pi/4.\n\
-      \            else:\n                h[n]=np.sinc(k/Sps)*math.cos(beta*k*math.pi/Sps)/(1.-(2.*beta*k/Sps)**2)\
+      \   h=filtroNyquist(Sps,ntaps)\n    else:\n        h=ntaps*[0,]\n        for\
+      \ n in range(ntaps):\n            k=n-ntaps/2. # esto es para que h[n] quede\
+      \ centrada en la mitad del vector\n            if abs(k)==Sps/(2.*beta):\n \
+      \               h[n]=np.sinc(1./(2.*beta))*math.pi/4.\n            else:\n \
+      \               h[n]=np.sinc(k/Sps)*math.cos(beta*k*math.pi/Sps)/(1.-(2.*beta*k/Sps)**2)\
       \                \n    Amp=np.amax(h)\n    return h/Amp\n"
   states:
     bus_sink: false
