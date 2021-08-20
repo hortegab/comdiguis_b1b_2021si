@@ -29,7 +29,7 @@ from PyQt5 import Qt
 from gnuradio import qtgui
 from gnuradio.filter import firdes
 import sip
-from b_EYE_Timing_sampler_v2_f import b_EYE_Timing_sampler_v2_f  # grc-generated hier_block
+from b_EYE_Timing_sampler_f import b_EYE_Timing_sampler_f  # grc-generated hier_block
 from b_PSD_f import b_PSD_f  # grc-generated hier_block
 from b_binary_bipolar_source1_f import b_binary_bipolar_source1_f  # grc-generated hier_block
 from gnuradio import analog
@@ -375,7 +375,7 @@ class sistemabase(gr.top_block, Qt.QWidget):
             self.Menu_grid_layout_1.setRowStretch(r, 1)
         for c in range(0, 1):
             self.Menu_grid_layout_1.setColumnStretch(c, 1)
-        self.b_EYE_Timing_sampler_v2_f_0 = b_EYE_Timing_sampler_v2_f(
+        self.b_EYE_Timing_sampler_f_0 = b_EYE_Timing_sampler_f(
             AlphaLineas=0.5,
             Delay=0,
             GrosorLineas=20,
@@ -387,7 +387,7 @@ class sistemabase(gr.top_block, Qt.QWidget):
             Ymin=-2,
         )
 
-        self.Menu_grid_layout_4.addWidget(self.b_EYE_Timing_sampler_v2_f_0, 0, 0, 1, 1)
+        self.Menu_grid_layout_4.addWidget(self.b_EYE_Timing_sampler_f_0, 0, 0, 1, 1)
         for r in range(0, 1):
             self.Menu_grid_layout_4.setRowStretch(r, 1)
         for c in range(0, 1):
@@ -403,15 +403,15 @@ class sistemabase(gr.top_block, Qt.QWidget):
         self.connect((self.E3TRadio_bipolar_decisor_ff_0, 0), (self.blocks_null_sink_0, 0))
         self.connect((self.E3TRadio_bipolar_decisor_ff_0, 0), (self.qtgui_time_sink_x_0, 1))
         self.connect((self.analog_noise_source_x_0, 0), (self.blocks_add_xx_0, 1))
-        self.connect((self.b_EYE_Timing_sampler_v2_f_0, 0), (self.E3TRadio_bipolar_decisor_ff_0, 0))
-        self.connect((self.b_EYE_Timing_sampler_v2_f_0, 0), (self.qtgui_time_sink_x_0, 2))
+        self.connect((self.b_EYE_Timing_sampler_f_0, 0), (self.E3TRadio_bipolar_decisor_ff_0, 0))
+        self.connect((self.b_EYE_Timing_sampler_f_0, 0), (self.qtgui_time_sink_x_0, 2))
         self.connect((self.b_binary_bipolar_source1_f_0, 0), (self.blocks_delay_0, 0))
         self.connect((self.b_binary_bipolar_source1_f_0, 0), (self.interp_fir_filter_xxx_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.interp_fir_filter_xxx_0_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.qtgui_eye_sink_x_0_0, 0))
         self.connect((self.blocks_add_xx_0, 0), (self.qtgui_time_sink_x_0_0, 1))
         self.connect((self.blocks_delay_0, 0), (self.qtgui_time_sink_x_0, 0))
-        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.b_EYE_Timing_sampler_v2_f_0, 0))
+        self.connect((self.blocks_multiply_const_vxx_0, 0), (self.b_EYE_Timing_sampler_f_0, 0))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.qtgui_eye_sink_x_0_0, 1))
         self.connect((self.blocks_multiply_const_vxx_0, 0), (self.qtgui_time_sink_x_0_0, 2))
         self.connect((self.interp_fir_filter_xxx_0, 0), (self.b_PSD_f_0, 0))
@@ -436,10 +436,10 @@ class sistemabase(gr.top_block, Qt.QWidget):
         self.Sps = Sps
         self.set_h(([1]*self.Sps))
         self.set_samp_rate(self.Rb*self.Sps)
-        self.b_EYE_Timing_sampler_v2_f_0.set_Sps(self.Sps)
         self.blocks_multiply_const_vxx_0.set_k(1/self.Sps)
         self.qtgui_eye_sink_x_0.set_samp_per_symbol(self.Sps)
         self.qtgui_eye_sink_x_0_0.set_samp_per_symbol(self.Sps)
+        self.b_EYE_Timing_sampler_f_0.set_Sps(self.Sps)
 
     def get_Rb(self):
         return self.Rb
@@ -456,11 +456,11 @@ class sistemabase(gr.top_block, Qt.QWidget):
         self.samp_rate = samp_rate
         self.set_BW(self.samp_rate/2)
         self.set_samp_rate_dac(self.samp_rate*32)
-        self.b_EYE_Timing_sampler_v2_f_0.set_Samprate(self.samp_rate)
         self.b_PSD_f_0.set_samp_rate(self.samp_rate)
         self.qtgui_eye_sink_x_0.set_samp_rate(self.samp_rate)
         self.qtgui_eye_sink_x_0_0.set_samp_rate(self.samp_rate)
         self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
+        self.b_EYE_Timing_sampler_f_0.set_Samprate(self.samp_rate)
 
     def get_samp_rate_dac(self):
         return self.samp_rate_dac

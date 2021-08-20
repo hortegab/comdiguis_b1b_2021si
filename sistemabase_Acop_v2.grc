@@ -44,6 +44,27 @@ blocks:
     coordinate: [704, 19]
     rotation: 0
     state: enabled
+- name: Dtiming
+  id: variable_qtgui_range
+  parameters:
+    comment: ''
+    gui_hint: 2,0,1,1
+    label: Dtiming
+    min_len: '200'
+    orient: QtCore.Qt.Horizontal
+    rangeType: int
+    start: '0'
+    step: '1'
+    stop: Sps-1
+    value: '0'
+    widget: counter_slider
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1218, 634]
+    rotation: 0
+    state: true
 - name: Noise
   id: variable_qtgui_range
   parameters:
@@ -62,7 +83,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [1075, 716]
+    coordinate: [1075, 715]
     rotation: 0
     state: true
 - name: Rb
@@ -221,6 +242,23 @@ blocks:
     coordinate: [194, 441]
     rotation: 180
     state: true
+- name: E3TRadio_diezma_ff_0
+  id: E3TRadio_diezma_ff
+  parameters:
+    M: Dtiming
+    N: Sps
+    affinity: ''
+    alias: ''
+    comment: ''
+    maxoutbuf: '0'
+    minoutbuf: '0'
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [393, 430]
+    rotation: 180
+    state: true
 - name: Menu
   id: qtgui_tab_widget
   parameters:
@@ -274,13 +312,14 @@ blocks:
     coordinate: [960, 130]
     rotation: 0
     state: true
-- name: b_EYE_Timing_sampler_f_0
-  id: b_EYE_Timing_sampler_f
+- name: b_EYE_Timing_f_0
+  id: b_EYE_Timing_f
   parameters:
     AlphaLineas: '0.5'
     Delay: '0'
     GrosorLineas: '20'
     N_eyes: '2'
+    Retardo_Timing: Dtiming
     Samprate: samp_rate
     Sps: Sps
     Title: '"Eye Diagram and Timing"'
@@ -290,14 +329,12 @@ blocks:
     alias: ''
     comment: ''
     gui_hint: Menu@4:0,0,1,1
-    maxoutbuf: '0'
-    minoutbuf: '0'
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [364, 376]
-    rotation: 180
+    coordinate: [619, 519]
+    rotation: 0
     state: true
 - name: b_PSD_f_0
   id: b_PSD_f
@@ -1132,15 +1169,16 @@ blocks:
 connections:
 - [E3TRadio_bipolar_decisor_ff_0, '0', blocks_null_sink_0, '0']
 - [E3TRadio_bipolar_decisor_ff_0, '0', virtual_sink_0_1, '0']
+- [E3TRadio_diezma_ff_0, '0', E3TRadio_bipolar_decisor_ff_0, '0']
+- [E3TRadio_diezma_ff_0, '0', virtual_sink_0_1_0, '0']
 - [analog_noise_source_x_0, '0', blocks_add_xx_0, '1']
-- [b_EYE_Timing_sampler_f_0, '0', E3TRadio_bipolar_decisor_ff_0, '0']
-- [b_EYE_Timing_sampler_f_0, '0', virtual_sink_0_1_0, '0']
 - [b_binary_bipolar_source1_f_0, '0', interp_fir_filter_xxx_0, '0']
 - [b_binary_bipolar_source1_f_0, '0', virtual_sink_0, '0']
 - [blocks_add_xx_0, '0', interp_fir_filter_xxx_0_0, '0']
 - [blocks_add_xx_0, '0', virtual_sink_0_0_1, '0']
 - [blocks_delay_0, '0', qtgui_time_sink_x_0, '0']
-- [blocks_multiply_const_vxx_0, '0', b_EYE_Timing_sampler_f_0, '0']
+- [blocks_multiply_const_vxx_0, '0', E3TRadio_diezma_ff_0, '0']
+- [blocks_multiply_const_vxx_0, '0', b_EYE_Timing_f_0, '0']
 - [blocks_multiply_const_vxx_0, '0', virtual_sink_0_0_1_0, '0']
 - [interp_fir_filter_xxx_0, '0', blocks_add_xx_0, '0']
 - [interp_fir_filter_xxx_0, '0', virtual_sink_0_0, '0']
