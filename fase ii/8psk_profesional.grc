@@ -138,12 +138,13 @@ blocks:
   id: variable
   parameters:
     comment: ''
-    value: (-1-1j, -1+1j, 1-1j, 1+1j)
+    value: (np.exp(1j*p[0]), np.exp(1j*p[1]), np.exp(1j*p[2]), np.exp(1j*p[3]), np.exp(1j*p[4]),
+      np.exp(1j*p[5]), np.exp(1j*p[6]), np.exp(1j*p[7]))
   states:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [827, 87]
+    coordinate: [873, 87]
     rotation: 0
     state: enabled
 - name: alpha
@@ -228,6 +229,18 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [245, 65]
+    rotation: 0
+    state: enabled
+- name: p
+  id: variable
+  parameters:
+    comment: ''
+    value: np.array([5*math.pi/4,4*math.pi/4,2*math.pi/4,3*math.pi/4,6*math.pi/4,7*math.pi/4,1*math.pi/4,0*math.pi/4])
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1002, 89]
     rotation: 0
     state: enabled
 - name: samp_rate
@@ -607,6 +620,19 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [803, 21]
+    rotation: 0
+    state: true
+- name: import_0_0
+  id: import
+  parameters:
+    alias: ''
+    comment: ''
+    imports: import numpy as np
+  states:
+    bus_sink: false
+    bus_source: false
+    bus_structure: null
+    coordinate: [1142, 39]
     rotation: 0
     state: true
 - name: interp_fir_filter_xxx_0
