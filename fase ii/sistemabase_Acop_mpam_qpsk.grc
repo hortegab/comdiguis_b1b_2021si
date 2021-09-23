@@ -242,18 +242,6 @@ blocks:
     coordinate: [728, 84]
     rotation: 0
     state: enabled
-- name: samp_rate_dac
-  id: variable
-  parameters:
-    comment: ''
-    value: samp_rate*32
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [585, 19]
-    rotation: 0
-    state: enabled
 - name: sym_delay
   id: variable_qtgui_range
   parameters:
@@ -1286,7 +1274,7 @@ blocks:
     tr_level: '0.0'
     tr_mode: qtgui.TRIG_MODE_FREE
     tr_tag: '""'
-    type: float
+    type: complex
     units: dB
     update_time: '0.10'
     width1: '3'
@@ -1308,7 +1296,7 @@ blocks:
     bus_structure: null
     coordinate: [538, 909]
     rotation: 0
-    state: disabled
+    state: enabled
 - name: qtgui_time_sink_x_0_0
   id: qtgui_time_sink_x
   parameters:

@@ -53,7 +53,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [704, 19]
+    coordinate: [1418, 381]
     rotation: 0
     state: enabled
 - name: Dtiming
@@ -277,18 +277,6 @@ blocks:
     bus_source: false
     bus_structure: null
     coordinate: [1383, 70]
-    rotation: 0
-    state: enabled
-- name: samp_rate_dac
-  id: variable
-  parameters:
-    comment: ''
-    value: samp_rate*32
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [585, 19]
     rotation: 0
     state: enabled
 - name: sym_delay

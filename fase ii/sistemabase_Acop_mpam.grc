@@ -251,18 +251,6 @@ blocks:
     coordinate: [728, 84]
     rotation: 0
     state: enabled
-- name: samp_rate_dac
-  id: variable
-  parameters:
-    comment: ''
-    value: samp_rate*32
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [585, 19]
-    rotation: 0
-    state: enabled
 - name: E3TRadio_diezma_ff_0
   id: E3TRadio_diezma_ff
   parameters:
@@ -1134,7 +1122,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [349, 558]
+    coordinate: [346, 558]
     rotation: 0
     state: true
 - name: virtual_sink_0

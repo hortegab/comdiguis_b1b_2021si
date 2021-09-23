@@ -44,18 +44,6 @@ blocks:
     coordinate: [1384, 5]
     rotation: 0
     state: enabled
-- name: BW
-  id: variable
-  parameters:
-    comment: ''
-    value: samp_rate/2
-  states:
-    bus_sink: false
-    bus_source: false
-    bus_structure: null
-    coordinate: [704, 19]
-    rotation: 0
-    state: enabled
 - name: Dtiming
   id: variable_qtgui_range
   parameters:
@@ -465,7 +453,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [352, 466]
+    coordinate: [354, 472]
     rotation: 180
     state: true
 - name: blocks_add_xx_0
@@ -571,7 +559,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [36, 469]
+    coordinate: [38, 475]
     rotation: 180
     state: true
 - name: blocks_pack_k_bits_bb_0
@@ -587,7 +575,7 @@ blocks:
     bus_sink: false
     bus_source: false
     bus_structure: null
-    coordinate: [195, 465]
+    coordinate: [197, 471]
     rotation: 180
     state: true
 - name: blocks_vector_source_x_0

@@ -108,7 +108,6 @@ class sistemabase(gr.top_block, Qt.QWidget):
         self.Noise = Noise = 0.1
         self.Fc = Fc = 40e6
         self.Dtiming = Dtiming = Sps-1
-        self.BW = BW = samp_rate/2
 
         ##################################################
         # Blocks
@@ -695,7 +694,6 @@ class sistemabase(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.set_BW(self.samp_rate/2)
         self.set_Rs(self.samp_rate/self.Sps)
         self.set_samp_rate_dac(self.samp_rate*32)
         self.b_Eye_Timing_c_0.set_Samprate(self.samp_rate)
@@ -804,12 +802,6 @@ class sistemabase(gr.top_block, Qt.QWidget):
         self.Dtiming = Dtiming
         self.b_Eye_Timing_c_0.set_Retardo_Timing(self.Dtiming)
         self.b_diez_cc_0.set_M(self.Sps-self.Dtiming)
-
-    def get_BW(self):
-        return self.BW
-
-    def set_BW(self, BW):
-        self.BW = BW
 
 
 
